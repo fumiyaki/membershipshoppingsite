@@ -9,6 +9,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { auth } from "../../plugins/firebase";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
+  const history = useHistory();
   const style = useStyles();
   const [email, setEmail] = useState(""),
     [password, setPassword] = useState(""),
@@ -69,6 +71,7 @@ export default function SignIn() {
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
         console.log(user);
+        history.push("/");
       })
       .catch((error) => {
         setErrorMessage(error.message);
