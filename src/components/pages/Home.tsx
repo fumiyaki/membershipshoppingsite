@@ -14,7 +14,7 @@ export default function Home() {
   };
   return (
     <div>
-      Home
+      Home Test
       <button onClick={logout}>サインアウト</button>
     </div>
   );
