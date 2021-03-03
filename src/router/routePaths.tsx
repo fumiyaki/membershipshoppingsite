@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "../components/pages/Home";
 import SignIn from "../components/pages/SignIn";
+import Auth from "../components/utlis/Auth";
 
 type RouteProps = {
   path: string;
@@ -12,9 +13,11 @@ const routePaths: RouteProps = [
   {
     path: "(/)?",
     exact: true,
-    children: () => {
-      return <Home />;
-    },
+    children: (
+      <Auth>
+        <Home />
+      </Auth>
+    ),
   },
   {
     path: "/signin",
